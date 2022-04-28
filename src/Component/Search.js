@@ -5,14 +5,17 @@ const Search = () => {
   const [data, setData] = useState([]);
   const [value, setvalue] = useState("");
   useEffect(() => {
-    db.collection("posts").onSnapshot((snapshot) => {
-      setData(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          post: doc.data(),
-        }))
-      );
-    });
+    const unsub = db
+      .collection("posts")
+    //   .orderBy("createdAt", "desc")
+      .onSnapshot((snapshot) => {
+        let documents = [];
+        snapshot.forEach((doc) => {
+          documents.push({ ...doc.data(), id: doc.id });
+        });
+        setData(documents);
+      });
+    return () => unsub();
   }, []);
   return (
     <div>
@@ -22,9 +25,11 @@ const Search = () => {
 
       <div className="row mt-2">
 
-{data.filter(({post})=>{
+{data
+.filter((post)=>{
    return (post.username.includes(value))
-  }).map(({post}) => (
+  })
+  .map((post) => (
               <div  className="col-md-4" style={{ padding: "5px" }}>
                 <div
                   className="card"

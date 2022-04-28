@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import ProgressBar from "./ProgressBar";
 export const ImageUpload = () => {
-  const [caption ,setCaption] = useState("");
   const [file, setFile] = useState(null);
   const [error ,setError]=useState(null)
   const types=['image/png' ,'image/jpeg' ,'image/jpg']
@@ -19,18 +18,12 @@ export const ImageUpload = () => {
 return (
     <div>
      
-      <input
-        type="text"
-        placeholder="Enter a caption"
-       
-        onChange={(e) => setCaption(e.target.value)}
-      />
-      <input type="file" onChange={handleChange} />
+   <input type="file" onChange={handleChange} />
     <div className="output">
         {error && <div className="error">{error}
       </div>}
       {file && <div  >{file.name}</div>}
-      {file && <ProgressBar file={file}  setfile={setFile}   caption={caption} />}
+      {file && <ProgressBar file={file}  setfile={setFile}   />}
     </div>
     </div>
   );
