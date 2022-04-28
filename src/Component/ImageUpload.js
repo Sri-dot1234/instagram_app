@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { storage, db } from "./firebase";
-import firebase from "firebase";
+import firebase from "firebase"
 export const ImageUpload = () => {
   const [caption, setCaption] = useState("");
   const [image, setImages] = useState(null);
@@ -33,29 +33,29 @@ export const ImageUpload = () => {
           .getDownloadURL()
           .then((url) => {
             db.collection("posts").add({
-              timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+              timestamp:firebase.firestore.FieldValue.serverTimestamp(),
               caption: caption,
               imageUrl: url,
+    
             });
             setCaption("");
             setProgres(0);
-            setImages(null);
+            setImages(null)
           });
       }
     );
   };
   return (
     <div>
-      <progres value={progres} max="100" />
+      {/* <progres value={progres} max="100" /> */}
       <input
         type="text"
         placeholder="Enter a caption"
+       
         onChange={(e) => setCaption(e.target.value)}
       />
       <input type="file" onChange={handleChange} />
-      <button onClick={handleupload} className="btn btn-info">
-        upload
-      </button>
+      <button  onClick={handleupload} className="btn btn-info">upload</button>
     </div>
   );
 };

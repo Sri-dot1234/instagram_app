@@ -5,10 +5,11 @@ import { Home } from "./Home";
 import { Login } from "./Login";
 //import { Logout } from "./Logout";
 import { Register } from "./Register";
+import Search from "./Search";
 export const Navbar = () => {
   const user = localStorage.getItem("login");
   
-  console.log(user);
+ // console.log(user);
   return (
     <div>
       {" "}
@@ -34,10 +35,15 @@ export const Navbar = () => {
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTofBm7QGOKT0vXXV6xqEmYdyrhUM8yUzniw&usqp=CAU"
                     width="40"
                     alt="insta" 
-                  />
+                  /> {user}
                 </Link>
               </li>
               <li className="nav-item" id="dsd">
+                <Link className="nav-link" to={"/Search"}>
+                <i className="fa fa-search" aria-hidden="true"></i>
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to={"/"}>
                   Login
                 </Link>
@@ -47,6 +53,7 @@ export const Navbar = () => {
                 <Link className="nav-link" to={"/Register"}>
                   signUp
                 </Link>
+               
               </li>
             </ul>
           </div>
@@ -55,6 +62,7 @@ export const Navbar = () => {
         <Routes>
           <Route path="/Home" element={<Home />} />
           <Route path="/" element={<Login />} />
+          <Route path="/Search" element={<Search />} />
           <Route path="/Forgot" element={<Forgot />} />
           <Route path="/Register" element={<Register />} />
         </Routes>

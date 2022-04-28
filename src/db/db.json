@@ -1,0 +1,23 @@
+{
+    "posts": [{
+        "id": 1,
+        "name": "Satheesh",
+        "image": "Sat@mail.com",
+        "caption": "South street"
+    }, {
+        "id": 2,
+        "name": "John",
+        "image": "john@mail.com",
+        "caption": "North street"
+    }, {
+        "id": 3,
+        "name": "Robert",
+        "image": "robert@mail.com",
+        "caption": "East street"
+    }, {
+        "id": 4,
+        "name": "Mani",
+        "image": "mani@mail.com",
+        "caption": "West street"
+    }]
+    }

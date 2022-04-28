@@ -7,6 +7,7 @@ export const Login = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [array, setarray] = useState([]);
+ 
   const BASE_URL =
     "https://react-demo-b16bf-default-rtdb.firebaseio.com/Register.json";
 
@@ -25,8 +26,9 @@ export const Login = (props) => {
       .get(BASE_URL)
       .then((response) => setarray(Object.values(response.data)));
     for (let i of array) {
-     localStorage.setItem("login", (i.username));
+     
       if (i.username === username && i.password === password) {
+        localStorage.setItem("login", i.username);
         navigate("/Home");
         alert("user login success");
         break;

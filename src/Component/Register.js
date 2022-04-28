@@ -12,7 +12,7 @@ export const Register = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-
+  
   const signUp = (event) => {
     event?.preventDefault();
     const json_object = {
@@ -30,8 +30,7 @@ export const Register = (props) => {
         .then((response) => console.log(response));
       navigate("/");
       alert("your are successfully registered");
-    console.log("data");
-      setEmail("");
+    setEmail("");
       setPassword("");
       setUsername("");
     } else {
@@ -84,7 +83,7 @@ export const Register = (props) => {
               <label for="password" className="col-sm-4 col-form-label">
                 password:
               </label>
-              <div class="col-sm-8">
+              <div className="col-sm-8">
                 <input
                   type="password"
                   className="form-control"
