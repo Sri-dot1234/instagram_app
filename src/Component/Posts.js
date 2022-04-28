@@ -10,6 +10,7 @@ function Posts({ postId, username, caption, imageUrl }) {
   
   const user = localStorage.getItem("login");
   useEffect(() => {
+  
     let unsubscribe= db
         .collection("posts")
         .doc(postId)
@@ -22,8 +23,10 @@ function Posts({ postId, username, caption, imageUrl }) {
     return () => {
       unsubscribe();
     };
+
   }, [postId]);
   const postComment = (event) => {
+      if(postId){
       event.preventDefalut();
       db.collection("posts").doc(postId)
       .collection("comments").add({
@@ -31,6 +34,7 @@ function Posts({ postId, username, caption, imageUrl }) {
        username:user.displayName,
        timestamp:firebase.firestore.FieldValue.serverTimestamp(),  
       })
+    }
       setComment('');
   };
   const deleteuser=(Id)=>{

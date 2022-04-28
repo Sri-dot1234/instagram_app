@@ -88,3 +88,8 @@ margin-top: 10px;
     margin-right: auto;
     margin-left: auto;
   }
+.progress-bar{
+    height:5px;
+    background-color:var(--primary) ;
+    margin-top:20px;
+}

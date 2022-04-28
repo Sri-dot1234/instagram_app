@@ -8,7 +8,9 @@ const firebaseApp =firebase.initializeApp( {
     messagingSenderId: "708333402638",
     appId: "1:708333402638:web:367624258812bc603bda5f"
   });
+  //const projecStorage=firebase.storage();
  const db=firebaseApp.firestore();
  const auth=firebase.auth();
  const storage=firebase.storage();
- export {db,auth,storage};
+ const timestamp = firebase.firestore.FieldValue.serverTimestamp();
+ export {db,auth,storage ,timestamp};

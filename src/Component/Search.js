@@ -21,13 +21,11 @@ const Search = () => {
 </form>
 
       <div className="row mt-2">
-        {data.length > 0 &&
-          data
-            .filter(({ post }) => {
-              return post.username.toLowerCase().includes(value.toLowerCase());
-            })
-            .map(({ id, post }) => (
-              <div key={id} className="col-md-4" style={{ padding: "5px" }}>
+
+{data.filter(({post})=>{
+   return (post.username.includes(value))
+  }).map(({post}) => (
+              <div  className="col-md-4" style={{ padding: "5px" }}>
                 <div
                   className="card"
                   style={{ height: "25rem", width: "22rem", padding: "3px" }}
@@ -46,7 +44,7 @@ const Search = () => {
                   </div>
                 </div>
               </div>
-            ))}
+            ))} 
       </div>
     </div>
   );
