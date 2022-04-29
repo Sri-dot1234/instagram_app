@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Posts.css";
 import { db, timestamp } from "./firebase";
 import Avatar from "@material-ui/core/Avatar";
-function Posts({ postId, username, caption, imageUrl }) {
+function Posts({ postId, username, createdAt, imageUrl }) {
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
 
@@ -48,7 +48,7 @@ function Posts({ postId, username, caption, imageUrl }) {
         </div>
         <img className="post_image" src={imageUrl} alt="img" />
         <h4 className="post_text">
-          {username}:<strong>{caption}</strong>
+          {username}<strong>{createdAt}</strong>
         </h4>
         <div className="post_comments">
           {comments.map((com) => (

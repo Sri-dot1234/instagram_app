@@ -49,6 +49,7 @@ export const Home = () => {
                 username={post.username}
                 caption={post.caption}
                 imageUrl={post.imageUrl}
+               
               />
             </div>
           ))}
