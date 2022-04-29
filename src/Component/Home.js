@@ -18,6 +18,7 @@ export const Home = () => {
         snapshot.forEach((doc) => {
           documents.push({ ...doc.data(), id: doc.id });
         });
+        //console.log(documents)
         setPosts(documents);
       });
     return () => unsub();
@@ -43,7 +44,7 @@ export const Home = () => {
       <div className="container ">
         <div className="row">
           {currentPosts.map((post) => (
-            <div className="col-md-4">
+            <div className="col-md-4 col-s-6 col-xs-6">
               <Posts
                 postId={post.id}
                 username={post.username}

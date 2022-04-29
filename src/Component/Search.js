@@ -30,7 +30,7 @@ const Search = () => {
    return (post.username.includes(value))
   })
   .map((post) => (
-              <div  className="col-md-4" style={{ padding: "5px" }}>
+              <div  className="col-md-4 " style={{ padding: "5px" }}>
                 <div
                   className="card"
                   style={{ height: "25rem", width: "22rem", padding: "3px" }}
